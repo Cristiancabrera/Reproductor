@@ -29,33 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Reproductor = new AxWMPLib.AxWindowsMediaPlayer();
+            this.Agregar = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.listCanciones = new System.Windows.Forms.ListBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).BeginInit();
             this.SuspendLayout();
             // 
-            // axWindowsMediaPlayer1
+            // Reproductor
             // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(59, 23);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(412, 286);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.Reproductor.Enabled = true;
+            this.Reproductor.Location = new System.Drawing.Point(-1, 36);
+            this.Reproductor.Name = "Reproductor";
+            this.Reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Reproductor.OcxState")));
+            this.Reproductor.Size = new System.Drawing.Size(412, 286);
+            this.Reproductor.TabIndex = 0;
             // 
-            // button1
+            // Agregar
             // 
-            this.button1.Location = new System.Drawing.Point(59, 334);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Abrir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Agregar.Location = new System.Drawing.Point(121, 2);
+            this.Agregar.Name = "Agregar";
+            this.Agregar.Size = new System.Drawing.Size(75, 28);
+            this.Agregar.TabIndex = 1;
+            this.Agregar.Text = "Abrir";
+            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.Click += new System.EventHandler(this.button1_Click);
             // 
             // openFileDialog1
             // 
@@ -63,7 +64,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(158, 334);
+            this.button2.Location = new System.Drawing.Point(25, 328);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 28);
             this.button2.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(256, 334);
+            this.button3.Location = new System.Drawing.Point(121, 328);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 28);
             this.button3.TabIndex = 3;
@@ -81,39 +82,50 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(351, 334);
+            this.button4.Location = new System.Drawing.Point(211, 328);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 28);
             this.button4.TabIndex = 4;
             this.button4.Text = "Detener";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // listCanciones
+            // 
+            this.listCanciones.FormattingEnabled = true;
+            this.listCanciones.ItemHeight = 16;
+            this.listCanciones.Location = new System.Drawing.Point(12, 363);
+            this.listCanciones.Name = "listCanciones";
+            this.listCanciones.Size = new System.Drawing.Size(304, 196);
+            this.listCanciones.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 515);
+            this.ClientSize = new System.Drawing.Size(900, 582);
+            this.Controls.Add(this.listCanciones);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.Agregar);
+            this.Controls.Add(this.Reproductor);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reproductor)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Button button1;
+        private AxWMPLib.AxWindowsMediaPlayer Reproductor;
+        private System.Windows.Forms.Button Agregar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ListBox listCanciones;
     }
 }
 
