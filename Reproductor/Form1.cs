@@ -15,6 +15,7 @@ namespace Reproductor
     {
         OpenFileDialog CajaDeBusquedaDeArchivos = new OpenFileDialog();
         FolderBrowserDialog abrir = new FolderBrowserDialog();
+        
 
         bool Play = false;
         string[] ArchivosMP3;
@@ -34,9 +35,9 @@ namespace Reproductor
         {
             Reproductor.URL = direccionesArchivosMP3[listCanciones.SelectedIndex];
             label1.Text = "Titulo: " + ArchivosMP3[listCanciones.SelectedIndex];
-            label3.Text = "Duracion: " + [];
             label4.Text = "Ruta: " + direccionesArchivosMP3[listCanciones.SelectedIndex];
-            
+            label3.Text = "Duracion: " + Reproductor.currentMedia.durationString;
+
         }
 
         private void macTrackBar1_ValueChanged(object sender, decimal value)
@@ -109,6 +110,7 @@ namespace Reproductor
             {
                 Estatus.Maximum = (int)Reproductor.Ctlcontrols.currentItem.duration;
                 timer1.Start();
+                openFileDialog2.Multiselect = true;
             }
             else
                     if (Reproductor.playState == WMPLib.WMPPlayState.wmppsPaused)
@@ -126,6 +128,7 @@ namespace Reproductor
         private void Reproductor_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
             ActualizarDatos();
+         
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -136,6 +139,26 @@ namespace Reproductor
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Estatus_ValueChanged(object sender, decimal value)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear(); 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog2.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                
+                 
+            {
+                for (TrackBar As String in (openFileDialog2.FileName)) 
+            }
         }
     }
 }
