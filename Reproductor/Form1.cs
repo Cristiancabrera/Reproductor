@@ -13,6 +13,8 @@ namespace Reproductor
 {
     public partial class Form1 : Form
     {
+        OpenFileDialog CajaDeBusquedaDeArchivos = new OpenFileDialog();
+        FolderBrowserDialog abrir = new FolderBrowserDialog();
 
         bool Play = false;
         string[] ArchivosMP3;
@@ -31,12 +33,15 @@ namespace Reproductor
         private void listCanciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             Reproductor.URL = direccionesArchivosMP3[listCanciones.SelectedIndex];
-            listCanciones.Text = ArchivosMP3[listCanciones.SelectedIndex];
+            label1.Text = "Titulo: " + ArchivosMP3[listCanciones.SelectedIndex];
+            label3.Text = "Duracion: " + [];
+            label4.Text = "Ruta: " + direccionesArchivosMP3[listCanciones.SelectedIndex];
+            
         }
 
         private void macTrackBar1_ValueChanged(object sender, decimal value)
         {
-
+            Reproductor.settings.volume = Volumen.Value;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -44,7 +49,10 @@ namespace Reproductor
             OpenFileDialog CajaDeBusquedaDeArchivos = new OpenFileDialog();
             CajaDeBusquedaDeArchivos.Multiselect = true;
             if (CajaDeBusquedaDeArchivos.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
+               
+            
+
+                {
                 ArchivosMP3 = CajaDeBusquedaDeArchivos.SafeFileNames;
                 direccionesArchivosMP3 = CajaDeBusquedaDeArchivos.FileNames;
 
@@ -55,6 +63,7 @@ namespace Reproductor
                 Reproductor.URL = direccionesArchivosMP3[0];
                 listCanciones.SelectedIndex = 0;
                 Play1.Image = Properties.Resources.wm_pause_2400px;
+
 
             }
         }
@@ -117,6 +126,16 @@ namespace Reproductor
         private void Reproductor_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
             ActualizarDatos();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
